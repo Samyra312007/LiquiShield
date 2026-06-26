@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian-950: #050505;
+  --color-obsidian-900: #0a0a0a;
+  --color-obsidian-800: #121212;
+  --color-obsidian-700: #1a1a1a;
+  --color-obsidian-600: #262626;
+  
+  --color-neon-cyan: #00F0FF;
+  --color-neon-blue: #0057FF;
+  --color-neon-amber: #FFB800;
+  --color-neon-red: #FF003C;
+  
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --animate-laser: laser-sweep 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  
+  @keyframes laser-sweep {
+    0% {
+      top: 0%;
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    95% {
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  --background: #050505;
+  --foreground: #f8fafc;
+}
+
+body {
+  background-color: #050505;
+  color: #f8fafc;
+  overflow-x: hidden;
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+/* Custom background mesh gradient */
+.mesh-gradient {
+  background-color: #050505;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(0, 87, 255, 0.07) 0px, transparent 40%),
+    radial-gradient(at 90% 10%, rgba(0, 240, 255, 0.07) 0px, transparent 40%),
+    radial-gradient(at 50% 80%, rgba(255, 0, 60, 0.04) 0px, transparent 45%);
+  background-size: 200% 200%;
+  animation: mesh-move 25s ease infinite;
+}
+
+@keyframes mesh-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 240, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Laser sweep bar style */
+.laser-bar {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00F0FF 20%, #0057FF 50%, #00F0FF 80%, transparent);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.8), 0 0 24px rgba(0, 87, 255, 0.5);
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Staggered animation classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger delays */
+.delay-0 { animation-delay: 0ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+.delay-900 { animation-delay: 900ms; }
+.delay-1000 { animation-delay: 1000ms; }
+

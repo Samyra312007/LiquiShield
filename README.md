@@ -160,6 +160,22 @@ python seed_data.py         # Seed 15 branches x 730 days
 uvicorn main:app --reload   # Start at http://localhost:8000
 ```
 
+### Frontend (liquishield-frontend)
+
+Navigate to the `liquishield-frontend` directory and run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the dashboard.
+
 ### Alembic Migrations
 
 ```bash
