@@ -228,7 +228,7 @@ export async function getBaseline(): Promise<BaselineResponse> {
         "Content-Type": "application/json",
       },
       // Set a brief timeout
-      signal: AbortSignal.timeout(2000),
+      signal: AbortSignal.timeout(5000),
     });
     
     if (!response.ok) {

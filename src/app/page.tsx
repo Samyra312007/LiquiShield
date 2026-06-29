@@ -339,11 +339,18 @@ export default function Dashboard() {
   const totalLiquidity = baselineData?.total_liquidity || 1630000000;
   const activeBranches = baselineData?.total_branches || 15;
   
-  // Calculate simulated metrics
+  // Calculate simulated metrics — use actual sim results when available
   const activeForecasts = simResults?.forecasts || [];
-  const branchesAtRisk = livePreview.branchesAtRisk;
-  const minDaysUntilBreach = livePreview.minDaysUntilBreach;
-  const firstBreachedBranch = livePreview.firstBreachedBranch;
+  const branchesAtRisk = simResults
+    ? simResults.forecasts.filter(f => f.will_breach_minimum).length
+    : livePreview.branchesAtRisk;
+  const breachedForecasts = activeForecasts.filter(f => f.will_breach_minimum);
+  const minDaysUntilBreach = breachedForecasts.length > 0
+    ? Math.min(...breachedForecasts.map(f => f.days_until_zero ?? 31))
+    : livePreview.minDaysUntilBreach;
+  const firstBreachedBranch = breachedForecasts.length > 0
+    ? breachedForecasts.sort((a, b) => (a.days_until_zero ?? 31) - (b.days_until_zero ?? 31))[0].branch_id
+    : livePreview.firstBreachedBranch;
 
   // Get current selected branch forecast
   const selectedForecast = activeForecasts.find(f => f.branch_id === selectedBranchId);

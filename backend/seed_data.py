@@ -1,3 +1,4 @@
+import math
 import random
 from datetime import datetime, timedelta
 from database.connection import get_session_local, get_engine, Base, init_db
@@ -52,8 +53,8 @@ def seed():
         for day_offset in range(DAYS_OF_HISTORY):
             record_date = END_DATE - timedelta(days=DAYS_OF_HISTORY - day_offset)
 
-            withdrawal = random.uniform(100_000, 800_000) * (1 + 0.3 * random.sin(day_offset / 7))
-            deposit = random.uniform(80_000, 750_000) * (1 + 0.2 * random.sin(day_offset / 30))
+            withdrawal = random.uniform(100_000, 800_000) * (1 + 0.3 * math.sin(day_offset / 7))
+            deposit = random.uniform(80_000, 750_000) * (1 + 0.2 * math.sin(day_offset / 30))
             net = deposit - withdrawal
             opening = balance
             balance = max(0, balance + net)
