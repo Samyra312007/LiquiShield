@@ -2,7 +2,7 @@
 
 > **AI-Driven Liquidity Stress-Testing & Predictive Analytics for Global Banking**
 
-[🚀 CLICK HERE TO VIEW THE LIVE APPLICATION 🚀](http://your-live-link-here)
+[🚀 CLICK HERE TO VIEW THE LIVE APPLICATION 🚀](https://liqui-shield.vercel.app/)
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat&logo=python) 
 ![Framework](https://img.shields.io/badge/FastAPI-Framework-blue?style=flat&logo=fastapi) 
