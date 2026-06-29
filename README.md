@@ -11,6 +11,8 @@
 
 **LiquiShield** is an intelligent, operations-focused Decision Support System (DSS) designed to solve the critical challenges of liquidity risk management. This application provides real-time predictive analytics to simulate 30-day cash depletion curves during market crises and prevents localized branch failures.
 
+Demo Video Link: https://youtu.be/ZqHTgd00KTs
+
 ---
 
 ## 📑 Table of Contents
